@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1 class="header-logo">
+            <a href="{{ path('main_home') }}">
+                <img src="{{ asset('img/logo.svg') }}"
+                     alt="home"
+                >
+            </a>
+        </h1>
+    </div>
+</header>
+<main>
+    <div class="container">
         {% block body %}{% endblock %}
-    </body>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        &copy; Bucket list - {{ "now" | date('Y') }}
+    </div>
+</footer>
+</body>
 </html>
