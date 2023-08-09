@@ -2,7 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>
+        {% block title %}
+            Bucket-list
+        {% endblock %}
+    </title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
 </head>
@@ -14,6 +18,9 @@
                 <img src="{{ asset('img/logo.svg') }}"
                      alt="home"
                 >
+            </a>
+            <a href="{{ path('wish_list') }}">
+                All wishes
             </a>
         </h1>
     </div>
