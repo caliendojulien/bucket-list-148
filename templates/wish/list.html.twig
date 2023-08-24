@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="blague">
+{#        {% for b in blagues %}#}
+            <p>{{ blagues["joke"] }}</p>
+{#        {% endfor %}#}
+    </div>
     <div class="container">
         {% for wish in wishes %}
             <p>
                 <a href="{{ path('wish_details', {'wish': wish.id}) }}">
-                    {{ wish.title }}
+                    {{ wish.title }} - {{ wish.category.name }}
                 </a>
             </p>
         {% endfor %}

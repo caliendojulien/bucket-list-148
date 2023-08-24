@@ -1,0 +1,53 @@
+$ma_variable: #ff0000;
+
+@use "couleurs";
+@use "sass:math";
+
+body {
+  background-color: $ma_variable;
+}
+
+div {
+  color: couleurs.$couleur_secondaire;
+
+  ul {
+    color: couleurs.$couleur_primaire;
+
+    li {
+      color: couleurs.$couleur_tertiaire;
+    }
+  }
+}
+
+@mixin ma_mixin($uneCouleur) {
+  color: $uneCouleur;
+  box-shadow: #0d6efd;
+  font-size: xx-large;
+}
+
+.container1 {
+  @include ma_mixin($uneCouleur: #ff0000);
+}
+
+.container2 {
+  @include ma_mixin($uneCouleur: #00ff00);
+}
+
+
+
+.container3 {
+  width: math.div(300px, 200px);
+}
+
+.container4 {
+  color: darken($ma_variable, 50%);
+  background-color: lighten($ma_variable, 50%);
+}
+
+@for $i from 10 through 200 {
+  .container#{$i} {
+    width: $i * 10%;
+    font-size: #{$i}px;
+  }
+}
+

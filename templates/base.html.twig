@@ -7,8 +7,9 @@
             Bucket-list
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="icon" href="{{ asset('img/favicon.png') }}">
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_link_tags('app') }}
+
 </head>
 <body>
 <header>
@@ -26,6 +27,12 @@
     </div>
 </header>
 <main>
+    <div class="container158">
+        Container 158
+    </div>
+    <div class="container4">
+        Container 4
+    </div>
     <div class="container">
         {% block body %}{% endblock %}
     </div>

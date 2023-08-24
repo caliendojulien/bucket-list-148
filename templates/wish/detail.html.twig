@@ -6,7 +6,8 @@
 
 {% block body %}
     <div class="container">
-    <p>{{ wish.title }}</p>
+        <p>{{ wish.title }}</p>
         <p>{{ wish.date | date('d/m/y H:i') }}</p>
+        <img src="{{ asset('images/profils/'~wish.imageName) }}" alt="">
     </div>
 {% endblock %}

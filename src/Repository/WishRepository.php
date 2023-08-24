@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Wish;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,6 +20,21 @@ class WishRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Wish::class);
+    }
+
+    public function findAllPublished(): Paginator
+    {
+        $query = $this->createQueryBuilder('w')
+            ->leftJoin('w.category', 'c')
+            ->addSelect('c')
+            ->andWhere('w.isPublished = true')
+            ->addOrderBy('w.date', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery();
+
+        $paginator = new Paginator($query);
+        return $paginator;
+
     }
 
 //    /**
